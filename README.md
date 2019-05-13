@@ -2,8 +2,6 @@
 
 A Calendar interface with a Gregorian Calendar implementation in Dart. Interfaces are open for other calendar implementations as well, however this functionality is not currently implemented or planned.
 
-This is a fork of Dan Field's [dart_calendar](https://github.com/dnfield/dart_calendar) library which contains added functionality in the form of Durations.
-
 Treats whole days as the smallest unit of time; takes into account leap years.
 
 Currently does not allow BC dates (negative dates).
