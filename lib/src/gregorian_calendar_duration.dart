@@ -120,5 +120,20 @@ class GregorianCalendarDuration implements CalendarDuration<GregorianCalendar>{
   }
 
   @override
-  String toString() => '${years} years, ${months} months, ${weeks} weeks, ${days} days';
+  String toString() {
+    final StringBuffer buf = new StringBuffer();
+    if (years != 0) buf.write(years.abs() == 1 ? '1 year, ' : '$years years, ');
+    if (months != 0) buf.write(months.abs() == 1 ? '1 month, ' : '$years months, ');
+    if (weeks != 0) buf.write(weeks.abs() == 1 ? '1 week, ' : '$weeks weeks, ');
+    if (days != 0) buf.write(days.abs() == 1 ? '1 day, ' : '$days days, ');
+    return buf.toString();
+  }
+
+  /// Converts to an ISO 8601 formated duration string
+  /// 
+  /// The string days the following format:
+  /// 'PxYxMxWxD' where 'x' represents an integer value for
+  /// the number of years/months/weeks/days
+  String toIso8601() => 'P${years}Y${months}M${weeks}W${days}D';
+
 }
